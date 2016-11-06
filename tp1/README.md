@@ -55,7 +55,33 @@ A ce stade il va falloir customiser un peu notre page pour décaller le contenu 
 
     body { padding-top: 70px; }
 
-Ajoutons une [list-group](http://getbootstrap.com/components/#list-group-custom-content) décrivant les bières :
+Ajoutons une [list-group](http://getbootstrap.com/components/#list-group) décrivant les bières :
+
+    <div class="container">
+        <h1>Beers list</h1>
+         <ul class="list-group">
+             <li class="list-group-item"><span class="badge">6.8</span> Affligem Blond</li>
+             <li class="list-group-item"><span class="badge">8.5</span> Affligem Tripel</li>
+         </ul>
+        <p>Total number of beers: 2</p>
+    </div>
+
+## Etape 3
+
+Utilisons le [grid-system](http://getbootstrap.com/css/#grid) pour faire notre mise en page :
+
+![Screenshot](../assets/asset01.png)
 
 
+    <div class="row well">
+        <div class="col-sm-4 thumbnail"><img src="https://github.com/Giwi/angular2-beer/raw/master/step-06/beers/img/AffligemBlond.jpg" alt="..."></div>
+        <div class="col-sm-8">
+            <h2>Affligem Blond <span class="badge">6.8</span></h2>
+            <p>Affligem Blonde, the classic clear blonde abbey ale, with a gentle roundness and 6.8% alcohol. Low on bitterness, it is eminently drinkable.</p>
+        </div>
+    </div>
 
+
+Vous devriez avoir ce résultat :
+
+![Screenshot](../assets/asset02.png)

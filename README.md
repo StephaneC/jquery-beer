@@ -13,3 +13,4 @@ Le déroulement est le suivant :
 - [TP4](./tp4) : Evénements
 - [TP5](./tp5) : Détail des bières
 - [TP6](./tp6) : Ajax
+- [TP7](./tp7) : CRUD et formulaires

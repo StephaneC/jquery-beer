@@ -1,6 +1,6 @@
-# TP1 : Page statique et découverte de Bootstrap 3.
+# TP2 : Liste des bières
 
-Le but ici est de découvrir [Bootstrap 3](http://getbootstrap.com/).
+Affichons la liste de nos bières de manière un peu plus dynamique.
 
 ## Etape 1
 
@@ -84,5 +84,3 @@ Utilisons le [grid-system](http://getbootstrap.com/css/#grid) pour faire notre m
 Vous devriez avoir ce résultat :
 
 ![Screenshot](../assets/asset02.png)
-
-C'est bien beau le statique, mais ajouter un peu de données, c'est mieux, direction le [TP2](../tp2).

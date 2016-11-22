@@ -1,7 +1,5 @@
 $(document).ready(function () {
-    $.get("data/beers.json", function (data) {
-        $('#beersList').beerList(data);
-    });
+    $('#beerListComponent').beerList();
 });
 
 function filter(element, target) {

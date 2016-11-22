@@ -8,9 +8,9 @@ Le but est de recréer la fameuse application de gestion de bières en utilisant
 Le déroulement est le suivant :
 
 - [TP 1](./tp1) : Page statique et découverte de [Bootstrap 3](http://getbootstrap.com/).
-- [TP2](./tp2) : Liste des bières
-- [TP3](./tp3) : Modularisation
-- [TP4](./tp4) : Evénements
-- [TP5](./tp5) : Détail des bières
-- [TP6](./tp6) : Ajax
-- [TP7](./tp7) : CRUD et formulaires
+- [TP 2](./tp2) : Liste des bières
+- [TP 3](./tp3) : Modularisation
+- [TP 4](./tp4) : Evénements
+- [TP 5](./tp5) : Détail des bières
+- [TP 6](./tp6) : Ajax
+- [TP 7](./tp7) : CRUD et formulaires

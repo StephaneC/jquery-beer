@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $.get("data/beers.json", function (data) {
+    $.get("../data/beers.json", function (data) {
         var container = $('#beersList');
         data.forEach(function (item) {
             var alc = $('<span></span>').addClass('badge').text(item.alcohol);

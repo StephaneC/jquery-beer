@@ -1,5 +1,7 @@
 # TP3 : Modularisation
 
+JQuery peut être surchargé avec de nouvelles fonctionnalités (plugins), ce que j'appelerai ici "module".
+
 # Etape 1
 
 Créons un fichier `js/beerList.js`, insérons le dans `index.html` et plaçons-y le code "métier" en utilisant
@@ -66,6 +68,44 @@ Notez ici que **this** fait référence à l'élément *<li>*.
 
 # Etape 3
 
-Rendre ce fitre insensible à la casse
+Fabriquons des "WebComponents" : 
 
-Vous avez remarqué le `onkeyup` ? Modularisons ce filtre et regadons les événements dans le [TP4](../tp4/)
+Créer un fichier `tpl/beerListFilter.html` avec  : 
+
+    <div class="form-group">
+        <label class="sr-only" for="filter">Filter</label>
+        <div class="input-group">
+            <input type="text" class="form-control" id="filter" placeholder="Filter"
+                   onkeyup="filter(this, '#beersList')">
+            <div class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></div>
+        </div>
+    </div>
+    
+Modifier `index.html` avec :
+
+    <div class="col-md-4 col-sm-12">
+       <div id="beerListComponent"></div>
+    </div>
+    
+Et modifier `js/beerList.js` et  déplacer la requête Ajax : 
+
+    beerList: function () {
+       var div = this;
+       $.get('../data/beers.json', function (data) {
+           $('<div></div>').load('tpl/beerListFilter.html').appendTo(div);
+           var container = $('<ul></ul>').addClass('list-group').attr('id', 'beersList').appendTo(div);
+       
+       [...]
+       
+    },
+    displayTotal : function(total) {
+       this.append('Total number of beers: ', total);
+       return this;
+    }
+
+# Etape 4
+
+Rendre ce fitre [insensible à la casse](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/RegExp).
+                
+
+Vous avez remarqué le `onkeyup` ? Modularisons ce filtre et regardons les événements dans le [TP4](../tp4/)

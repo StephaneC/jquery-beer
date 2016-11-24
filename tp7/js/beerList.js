@@ -6,10 +6,12 @@ $.fn.extend({
         var filter = $('<div></div>').load('tpl/beerListFilter.html').appendTo(this);
         var container = $('<ul></ul>').addClass('list-group').attr('id', 'beersList').appendTo(this);
         var total = $('<p></p>').appendTo(this);
-        $.get('../data/beers.json', function (data) {
+        $.get($.fn.beerListComponent.defaults.baseUrl, function (data) {
             filter.find('#filter').filter(container, data, total);
             container.beerList(data);
             total.displayTotal(data.length, data.length);
+        }).fail(new function (err) {
+            console.error(err)
         });
         return this;
     },
@@ -27,7 +29,7 @@ $.fn.extend({
                     var target = $(event.target);
                     target.siblings().removeClass('active');
                     target.addClass('active');
-                    $('*').trigger('beerDetail', [item]);
+                    $('*').trigger('beerDetail', [item.id]);
                     event.preventDefault();
                 });
             container.append(elem);
@@ -47,14 +49,18 @@ $.fn.extend({
     },
     beerDetail: function () {
         var detail = this;
-        this.on('beerDetail', function (event, beer) {
-            if (beer !== undefined) {
+        this.on('beerDetail', function (event, beerId) {
+            if (beerId !== undefined) {
                 detail.empty();
                 detail.load('tpl/beerDetail.html', function () {
-                    $('#beerImg').attr('src', '..' + beer.img);
-                    var alc = $('<span></span>').addClass('badge').text(beer.alcohol);
-                    $('#beerName').append(alc, ' ', beer.name);
-                    $('#beerDescription').text(beer.description);
+                    $.get($.fn.beerListComponent.defaults.baseUrl + '/' + beerId, function (data) {
+                        $('#beerImg').attr('src', '../' + data.img);
+                        var alc = $('<span></span>').addClass('badge').text(data.alcohol);
+                        $('#beerName').append(alc, ' ', data.name);
+                        $('#beerDescription').text(data.description);
+                    }).fail(new function (err) {
+                        console.error(err)
+                    });
                 });
             }
         });

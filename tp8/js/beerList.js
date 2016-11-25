@@ -6,11 +6,15 @@ $.fn.extend({
         var filter = $('<div></div>').load('tpl/beerListFilter.html').appendTo(this);
         var container = $('<ul></ul>').addClass('list-group').attr('id', 'beersList').appendTo(this);
         var total = $('<p></p>').appendTo(this);
-        $.get($.fn.beerListComponent.defaults.baseUrl, function (data) {
-            filter.find('#filter').filter(container, data, total);
-            container.beerList(data);
-            total.displayTotal(data.length, data.length);
+        this.on('beerRefresh', function (event) {
+            $.get($.fn.beerListComponent.defaults.baseUrl, function (data) {
+                container.empty();
+                filter.find('#filter').filter(container, data, total);
+                container.beerList(data);
+                total.displayTotal(data.length, data.length);
+            });
         });
+        $('*').trigger('beerRefresh', []);
         return this;
     },
     /**
@@ -48,14 +52,33 @@ $.fn.extend({
     beerDetail: function () {
         var detail = this;
         this.on('beerDetail', function (event, beerId) {
+            detail.empty();
             if (beerId !== undefined) {
-                detail.empty();
                 detail.load('tpl/beerDetail.html', function () {
                     $.get($.fn.beerListComponent.defaults.baseUrl + '/' + beerId, function (data) {
-                        $('#beerImg').attr('src', '../' + data.img);
+                        if (!!data.img) {
+                            $('#beerImg').attr('src', '../' + data.img);
+                        } else {
+                            $('#beerImg').parent().hide();
+                        }
                         var alc = $('<span></span>').addClass('badge').text(data.alcohol);
                         $('#beerName').append(alc, ' ', data.name);
                         $('#beerDescription').text(data.description);
+                        var delBtn = $('<button></button>')
+                            .attr('type', 'button')
+                            .addClass('btn btn-danger')
+                            .text('Supprimer')
+                            .click(function (event) {
+                                $.ajax({
+                                    method: "DELETE",
+                                    url: $.fn.beerListComponent.defaults.baseUrl + '/' + beerId
+                                }).done(function (msg) {
+                                    alert(data.name + ' supprimée');
+                                    $('*').trigger('beerRefresh', []);
+                                    $('*').trigger('beerDetail', []);
+                                });
+                            });
+                        $('#beerDescription').after(delBtn);
                     });
                 });
             }

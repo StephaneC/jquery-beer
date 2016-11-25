@@ -95,3 +95,5 @@ Dans la fonction `beerDetail` il va falloir se mettre à l'écoute de cet évén
     });
 
 Voilà, c'est quand même plus propre.
+
+direction le [TP6](../tp6).

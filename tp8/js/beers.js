@@ -11,4 +11,19 @@ $(document).ready(function () {
 
     $('#beerListComponent').beerListComponent();
     $('#beerDetailComponent').beerDetail();
+
+    $('#saveBtn').click(function () {
+        var b = {
+            id: $('#addBeer #addBeerId').val(),
+            name: $('#addBeer #addBeerName').val(),
+            alcohol: $('#addBeer #addBeerAlcohol').val(),
+            description: $('#addBeer #addBeerDescription').val()
+        };
+        $.post($.fn.beerListComponent.defaults.baseUrl, JSON.stringify(b), function (data) {
+            $('#myModal').modal('hide');
+            $('*').trigger('beerRefresh', []);
+            $('*').trigger('beerDetail', [data.id]);
+        });
+        event.preventDefault();
+    });
 });

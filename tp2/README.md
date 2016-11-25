@@ -54,4 +54,5 @@ Enfin [ajoutons](http://api.jquery.com/category/manipulation/dom-insertion-outsi
 
 On peu ajouter un peu [d'animation](http://api.jquery.com/fadeIn/) à la création de la liste.
 
-Ok, le fichier `index.js` risque de devenir monstrueux si l'application grossit. Modularisons avec le [TP3](../tp3).
+Ok, le fichier `index.js` risque de devenir monstrueux si l'application grossit. 
+Modularisons avec le [TP3](../tp3).

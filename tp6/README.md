@@ -28,3 +28,5 @@ Puis pour faire l'appel ajax :
     $.get($.fn.beerListComponent.defaults.baseUrl, function (data) { ...});
 
 Faisons de même pour le détail d'une bière, mais notre événement custom n'enverra que l'id de la bière.
+
+Direction le [TP7](../tp7).

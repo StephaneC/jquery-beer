@@ -28,5 +28,3 @@ dans le cas d'un ajout, positionnons le détail sur la bière précédement ajou
 ## Etape 4
 
 Réalisons la modification d'une bière avec le même type de modale que la création.
-
-Et hop alons au [TP8](../tp8).

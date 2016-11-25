@@ -49,6 +49,9 @@ $.fn.extend({
         this.append('Total number of beers: ', filtered, '/', total);
         return this;
     },
+    /**
+     *
+     */
     beerDetail: function () {
         var detail = this;
         this.on('beerDetail', function (event, beerId) {

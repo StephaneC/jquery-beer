@@ -4,11 +4,13 @@ Bon, an a vu brièvement de l'appel asynchrone avec [get()](https://api.jquery.c
 charger notre liste de bière. Cette méthode (comme toutes celles concernant les appels HTTP) utilise $.ajax(). 
 on peut ajouter un handler générique
 
-    $.ajaxSetup({
-      error: function(xhr, status, error) {
-        alert("An AJAX error occured: " + status + "\nError: " + error);
-      }
-    });
+```js
+$.ajaxSetup({
+  error: function(xhr, status, error) {
+    alert("An AJAX error occured: " + status + "\nError: " + error);
+  }
+});
+```
      
 L'idée est de câbler notre application sur un vrai service REST.
 
@@ -18,14 +20,17 @@ Récupérons de la liste des bières. Branchons donc cette API.
 
 Dans `js/beers.js` : 
 
-    $.fn.beerListComponent.defaults = {
-        baseUrl: "http://vps288382.ovh.net:4567/api/beers"
-    };
-    
+```js
+$.fn.beerListComponent.defaults = {
+    baseUrl: "http://vps288382.ovh.net:4567/api/beers"
+};
+```
     
 Puis pour faire l'appel ajax : 
 
-    $.get($.fn.beerListComponent.defaults.baseUrl, function (data) { ...});
+```js
+$.get($.fn.beerListComponent.defaults.baseUrl, function (data) { ...});
+```
 
 Faisons de même pour le détail d'une bière, mais notre événement custom n'enverra que l'id de la bière.
 

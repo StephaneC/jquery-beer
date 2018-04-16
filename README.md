@@ -14,3 +14,13 @@ Le déroulement est le suivant :
 - [TP 5](./tp5) : Détail des bières
 - [TP 6](./tp6) : Ajax
 - [TP 7](./tp7) : CRUD et formulaires
+
+## Tools 
+
+Pour que tout fonctionne bien, vous aurez besoin de faire tourner un petit webserver à partir du TP2. 
+Plusieurs solutions existent:
+* Serveur NodeJS
+* Déploiement Tomcat
+* Addon Chrome
+
+Pour ce cours, nous choisirons (Web Server for Chrome)[https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb].

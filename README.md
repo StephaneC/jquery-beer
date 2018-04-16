@@ -20,7 +20,7 @@ Le déroulement est le suivant :
 Pour que tout fonctionne bien, vous aurez besoin de faire tourner un petit webserver à partir du TP2. 
 Plusieurs solutions existent:
 * Serveur NodeJS
-* Déploiement Tomcat
+* Déploiement dans un conteneur (type Tomcat)
 * Addon Chrome
 
 Pour ce cours, nous choisirons (Web Server for Chrome)[https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb].
